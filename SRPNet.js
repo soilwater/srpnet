@@ -5,7 +5,6 @@ async function initialize() {
     model = await tf.loadLayersModel('https://raw.githubusercontent.com/soilwater/srpnet/main/models/model.json');
 }
 
-initialize();
 
 
 (function() {
@@ -175,6 +174,9 @@ async function predict() {
     var a = document.getElementById('download_predicted_image');
     a.href = image.src;  
 
+    // Remove landing image
+    document.getElementById("landing").style.display = "none";
+
     // View the original image holder
     document.getElementById("previewHolder").style.display = "block";
     
@@ -211,4 +213,5 @@ function unique(arr) {
     return result;
 }
 
+initialize();
 
