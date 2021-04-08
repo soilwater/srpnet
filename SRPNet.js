@@ -2,7 +2,7 @@
 var model;
 var predResult = document.getElementById("result");
 async function initialize() {
-    model = await tf.loadLayersModel('https://raw.githubusercontent.com/soilwater/srpnet/main/models/tensoflowJSmodel/model.json');
+    model = await tf.loadLayersModel('https://raw.githubusercontent.com/soilwater/srpnet/main/models/model.json');
 }
 
 initialize();
