@@ -1,0 +1,100 @@
+.result_text{
+    font-size: calc(2.5vw) !important;
+}
+
+.color-box {
+    width: 5px;
+    height: 3vw;
+    display: inline-block;
+    left: 5px;
+    margin-right: 10px;
+    top: 5px;
+    border-style: solid;
+    border: thin;
+}
+
+#stubble_box{
+    background-color: yellow;
+    
+}
+
+#soil_box{
+    background-color: brown;
+    
+}
+
+#canopy_box{
+    background-color: green;
+
+}
+
+#upload_btn_wrapper_div{
+    float:none;
+}
+
+ .result_div{
+    display: table;
+}
+ 
+#result_image{
+    display: table-header-group;
+}
+
+
+#download_predicted_image{
+    display: table-footer-group;
+}
+
+
+/*  Changing the color of the NAV bar */
+nav ul li a{
+  color: black;
+}  
+
+
+/* small devices */
+@media ( max-width: 600px) {
+    .result_text{ 
+         font-size:calc(20px + 3vw) !important; 
+        text-align: center !important;
+    }
+
+    #result_values{
+        display:grid !important;
+    }
+/*     #navbar-toggler{
+        float: right;
+    } */
+
+    .result_label {
+        display:inline;
+    }
+   .row .col.s1 {
+     width: 100%;
+    margin-left: initial;
+    } 
+
+    .result_text_mini_screen {
+        display: block; 
+        font-size:calc(30px + 5vw) !important; 
+    }
+
+    .color-box {
+    width: 5px;
+    height: 6vw;
+    /*  display: inline-block;  */
+    left: 5px;
+    margin-right: 10px;
+    top: 5px;
+    border-style: solid;
+    border: thin;
+    }
+
+    #previewHolder, #result_image{
+        width:100%;
+    }
+    nav a {
+        color: #000 !important;
+    }
+
+}

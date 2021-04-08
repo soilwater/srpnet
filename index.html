@@ -1,0 +1,139 @@
+<head>
+    <title>SRPNet</title>  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="css/materialize.min.css"/>
+    <link rel="stylesheet" href="css/custom_css.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   
+    <!--<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>-->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.3.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/nicolaspanel/numjs@0.15.1/dist/numjs.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+
+</head>
+
+
+<body>
+
+    <nav class="white navbar-transition cool-navbar z-depth-0 text-darken-1" style="padding-right: 200px !important;">
+        <div class="nav-wrapper" style="color:black ! important;"> 
+        <!-- header and button class -->
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="https://github.com/dishan3x/SRPNet">GitHub</a></li>
+            <!-- <li><a class="btn-floating btn-large waves-effect waves-light" onclick="modalInfo()"><i class="material-icons ">info</i> info</a></li> -->
+            <li><a onclick="modalInfo()">How to use it</a></li>
+            <li><a onclick="modalAbout()">About</a></li>
+            </ul>
+        </div> 
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="https://github.com/dishan3x/SRPNet">GitHub</a></li>
+        <!-- <li><a class="btn-floating btn-large waves-effect waves-light" onclick="modalInfo()"><i class="material-icons ">info</i> info</a></li> -->
+        <li><a onclick="modalInfo()">How to use it</a></li>
+        <li><a onclick="modalAbout()">About</a></li>
+        </ul>
+      
+    <div class="header_wrapper center-align">
+        <div class="row">
+            <h1 id="heading" ><B>SRP</B>Net</h1>
+        <p class="job-view"> Web app for quantifying soil, residue, and plant cover using a convolutional neural network</p>
+        </div>
+        <div class = "row file-field input-field ">
+            <div id="upload_btn_wrapper_div" class = "btn center-align">
+                <span>Upload</span>
+                <input id="filePhoto" onchange="uploadImage(this)" type="file" />
+            </div>
+        </div>
+    </div>
+
+    <div class="container"> 
+        <br><br>
+        <div id="result_values" class="result_values row">
+            <div class="result_label col l4 m4 s1">
+                <div id="soil_box" class="color-box"></div>
+                <label class="result_text">Soil: </label><label id="soil_label" class="result_text result_text_mini_screen"></label><label class="result_text result_text_mini_screen" >%</label></div>
+            <div class="result_label col l4 m4 s1">
+                <div id="stubble_box" class="color-box"></div>
+                <label class="result_text">Residue: </label><label id="stubble_label" class="result_text result_text_mini_screen"></label><label class="result_text result_text_mini_screen">%</label></div>
+            <div class="result_label col l4 m4 s1">
+                <div id="canopy_box" class="color-box"></div>
+                <label  class="result_text">Plant: </label><label id="canopy_label" class="result_text result_text_mini_screen"></label><label class="result_text result_text_mini_screen">%</label></div>
+        </div>
+        
+        <div class="row">
+            <!-- original image colomn -->
+            <div class="col l6 m12 s12"> 
+                <img id="previewHolder"  alt="Uploaded Image Preview Holder" width="512px" height="512px" style="display: none;" />
+                <a  id="download_original_image" download="original_capture.png" href="data:image/png;base64,asdasd...">Download original image</a>
+            </div>
+            <!-- classified image coloumn-->
+            <div id="result_div" class="col l6 m12 s12"> 
+                <a  id="download_predicted_image" download="prediction.png" href="data:image/png;base64,asdasd...">Download classified image</a>
+            </div>
+        </div>
+    </div> <!-- END div-container -->
+</body>
+
+
+  <!-- Modal Structure -->
+  <div id="modal_info" class="modal">
+    <div class="modal-content">
+        <h4>Instructions</h4>
+        <p>Open the SRPNet web-app and either load an image located in your file system or 
+            snap a photo using a mobile device. 
+        </p>
+        <p>
+            Downward-facing images should be collected at about 1.0 to 1.5 meters (about 3 to 5 feet) from the ground and should
+            only contain bare soil, crop residue, and/or live vegetation. Avoid including in the image exrtaneous objects like
+            shoes, tripod legs, marking flags, etc.
+        </p>
+        <p>
+            The SRPNet will automatically classify and display the percentage of bare soil (maroon color), crop residue (yellow), and live vegetation (green).
+            During the classification process, the application converts the original and the classified image into a 512 by 512 image resolution that can be downloaded for your records.
+        </p>
+
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+     
+    <!-- Modal Structure -->
+    <div id="modal_about" class="modal">
+        <div class="modal-content">
+          <h4>About</h4>
+          <p> SRPNet is a web application for digital image processing based on a convolutional deep neural network using the technique 
+              of pixel-wise semantic segmentation. The research behind the SRPNet was conducted by the Soil Water Processes group located within the 
+              Department of Agronomy at Kansas State University. Our goal is to provide a tool to characterize the land cover of agricutlural fields 
+              to help conservation planners, farmers, ranchers, forest producers, and researchers making better decisions to improve soil health and 
+              conserve soil and water resources. Accurately quantifying the proportion of each component covering the soil surface is an essential 
+              step towards implementing improved management strategies for building soil health and improving soil and water conservation.
+            </p>
+
+            <h6><b>Team</b></h6>
+            <p>Dishan Nahitiya - Department of Computer Science - Kansas State Universtiy</p>
+            <p>Mohammad Bisheh - Department of Industrial Engineering - Kansas State Universtiy</p>
+            <p>Andres Patrignani - Department of Agronomy - Kansas State Universtiy</p> 
+
+            <h6><b>Support</b></h6>
+            This research was supported by the USDA NRCS Kansas Conservation Innovation Grant and NSF EPSCoR awards. 
+
+            
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+
+
+    <script src="./SRPNet.js"></script>
+
+
