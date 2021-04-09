@@ -26,19 +26,18 @@
         <!-- header and button class -->
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="https://github.com/soilwater/srpnet">GitHub</a></li>
-            <!-- <li><a class="btn-floating btn-large waves-effect waves-light" onclick="modalInfo()"><i class="material-icons ">info</i> info</a></li> -->
             <li><a onclick="modalInfo()">How to use it</a></li>
             <li><a onclick="modalAbout()">About</a></li>
+            <li><a href="https://github.com/soilwater/srpnet">GitHub</a></li>
             </ul>
         </div> 
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="https://github.com/soilwater/srpnet">GitHub</a></li>
-        <!-- <li><a class="btn-floating btn-large waves-effect waves-light" onclick="modalInfo()"><i class="material-icons ">info</i> info</a></li> -->
         <li><a onclick="modalInfo()">How to use it</a></li>
         <li><a onclick="modalAbout()">About</a></li>
+        <li><a href="https://github.com/soilwater/srpnet">GitHub</a></li>
+        <!-- <li><a class="btn-floating btn-large waves-effect waves-light" onclick="modalInfo()"><i class="material-icons ">info</i> info</a></li> -->
         </ul>
       
     <div class="header_wrapper center-align">
@@ -56,7 +55,7 @@
 
     <div class="container"> 
         <br><br>
-        <div id="result_values" class="result_values row">
+        <div id="result_values" class="result_values row" style="display: none !important;">
             <div class="result_label col l4 m4 s1">
                 <div id="soil_box" class="color-box"></div>
                 <label class="result_text">Soil: </label><label id="soil_label" class="result_text result_text_mini_screen"></label><label class="result_text result_text_mini_screen" >%</label></div>
@@ -72,7 +71,7 @@
             <img src="img/landing.png" style="width: 100%;">
         </div>
 
-        <div class="row">
+        <div id="result_images" class="row" style="display: none !important;">
             <!-- original image colomn -->
             <div class="col l6 m12 s12"> 
                 <img id="previewHolder"  alt="Uploaded Image Preview Holder" width="512px" height="512px" style="display: none;" />
@@ -96,12 +95,12 @@
         </p>
         <p>
             Downward-facing images should be collected at about 1.0 to 1.5 meters (about 3 to 5 feet) from the ground and should
-            only contain bare soil, crop residue, and/or live vegetation. Avoid including in the image exrtaneous objects like
+            only contain bare soil, crop residue, and/or live vegetation. Avoid including in the image extraneous objects like
             shoes, tripod legs, marking flags, etc.
         </p>
         <p>
-            The SRPNet will automatically classify and display the percentage of bare soil (maroon color), crop residue (yellow), and live vegetation (green).
-            During the classification process, the application converts the original and the classified image into a 512 by 512 image resolution that can be downloaded for your records.
+            The SRPNet will automatically classify and display the percentage of bare soil (brown), crop residue (yellow), and live vegetation (green).
+            During the classification process, the application converts the original and the classified images into a square 512 by 512 pixel resolution that can be downloaded for your records.
         </p>
 
     </div>
@@ -123,9 +122,9 @@
             </p>
 
             <h6><b>Team</b></h6>
-            <p>Dishan Nahitiya - Department of Computer Science - Kansas State Universtiy</p>
-            <p>Mohammad Bisheh - Department of Industrial Engineering - Kansas State Universtiy</p>
-            <p>Andres Patrignani - Department of Agronomy - Kansas State Universtiy</p> 
+            <p>Dishan Nahitiya - Master student in the Department of Computer Science - Kansas State Universtiy</p>
+            <p>Mohammad Bisheh - Doctoral student in the Department of Industrial Engineering - Kansas State Universtiy</p>
+            <p>Andres Patrignani - Assistant Professor in Soil Water Processes - Department of Agronomy - Kansas State Universtiy</p> 
 
             <h6><b>Support</b></h6>
             This research was supported by the USDA NRCS Kansas Conservation Innovation Grant and NSF EPSCoR awards. 

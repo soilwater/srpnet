@@ -7,11 +7,11 @@ async function initialize() {
 
 
 
-(function() {
-    document.getElementById("result_values").style.display= "none";
-    document.getElementById("download_original_image").style.display= "none";
-    document.getElementById("download_predicted_image").style.display= "none";
- })();
+// (function() {
+//     document.getElementById("result_values").style.display= "none";
+//     document.getElementById("download_original_image").style.display= "none";
+//     document.getElementById("download_predicted_image").style.display= "none";
+//  })();
 
 
 function modalInfo(){
@@ -182,6 +182,7 @@ async function predict() {
     
     // Show calculated values of canopy cover values
     document.getElementById("result_values").style.display= "block";
+    document.getElementById("result_images").style.display= "block";
 
     document.getElementById("result_div").style.display= "table";
     // Downloadable button for preview image and generated image
