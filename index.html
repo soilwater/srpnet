@@ -1,4 +1,13 @@
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F2WKVJJBPQ"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-F2WKVJJBPQ');
+    </script>
     <title>SRPNet</title>  
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -48,7 +57,7 @@
         <div class = "row file-field input-field ">
             <div id="upload_btn_wrapper_div" class = "btn center-align">
                 <span>Upload</span>
-                <input id="filePhoto" onchange="uploadImage(this)" type="file" />
+                <input id="filePhoto" onchange="uploadImage(this)" type="file" onclick="gtag('event', 'click', {'event_category': 'button', 'event_label': 'uploads'});"/>
             </div>
         </div>
     </div>
