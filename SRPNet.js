@@ -1,10 +1,14 @@
-// SRPNet App
+// SRPNet Web App
+// Developed by Dishan Nahitiya and Andres Patrignani
+// Soil Water Processes Lab - Kansas State University 
+// Copyright 2021
+// Project supported by the Natural Resources Conservation Service Kansas Conservation Innovation Grant
+
 var model;
 var predResult = document.getElementById("result");
 async function initialize() {
     model = await tf.loadLayersModel('https://raw.githubusercontent.com/soilwater/srpnet/main/models/model.json');
 }
-
 
 
 // (function() {
@@ -150,9 +154,9 @@ async function predict() {
     per_canopy  = (per_canopy/sum_count)*100;
     per_soil = (per_soil/sum_count)*100;
 
-    document.getElementById('stubble_label').textContent = per_stubble.toFixed(2);
-    document.getElementById('soil_label').textContent = per_soil.toFixed(2);
-    document.getElementById('canopy_label').textContent = per_canopy.toFixed(2);
+    document.getElementById('soil-value').textContent = per_soil.toFixed(2);
+    document.getElementById('residue-value').textContent = per_stubble.toFixed(2);
+    document.getElementById('canopy-value').textContent = per_canopy.toFixed(2);
 
     tf.dispose(results);
     // put the modified pixels back on the canvas
@@ -169,7 +173,6 @@ async function predict() {
     //document.body.appendChild(image);
     document.getElementById('result_div').append(image);
 
-
     // Try to get 
     var a = document.getElementById('download_predicted_image');
     a.href = image.src;  
@@ -183,8 +186,8 @@ async function predict() {
     // Show calculated values of canopy cover values
     document.getElementById("result_values").style.display= "block";
     document.getElementById("result_images").style.display= "block";
-
     document.getElementById("result_div").style.display= "table";
+
     // Downloadable button for preview image and generated image
     document.getElementById("download_original_image").style.display= "block";
     document.getElementById("download_predicted_image").style.display= "table-footer-group";
